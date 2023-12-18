@@ -8,7 +8,7 @@ if game.PlaceId ~= 13864667823 then
 		Name = "MiliosBloxFruitStand Hub",
 		HidePremium = false,
 		SaveConfig = true,
-		ConfigFolder = "OrionTest",
+		ConfigFolder = "MiliosBloxFruitStand",
 		IntroText = "Loading Script..."
 	})
 	local Tab = Window:MakeTab({
@@ -334,169 +334,18 @@ else
 		})
 	end
 	local Window = OrionLib:MakeWindow({
-		Name = "Breaking Blitz",
+		Name = "MiliosBloxFruitStand Hub",
 		HidePremium = false,
 		SaveConfig = true,
-		ConfigFolder = "OrionTest",
-		IntroText = "Loading Script..."
+		ConfigFolder = "MiliosBloxFruitStand",
+		IntroText = "Unleashing Script..."
 	})
 	local Tab = Window:MakeTab({
-		Name = "Overpowered",
+		Name = "Discord",
 		Icon = "rbxassetid://4483345998",
 		PremiumOnly = false
 	})
-	local Section = Tab:AddSection({
-		Name = "Item Giver"
-	})
-	Tab:AddParagraph("Note:", "Getting/Spamming Multiple Of 1 Type Of Items May Cause The Item To Break And Be Unuseable/Unequippable.\nIt Is Recommended To Only Grab 1 Item At Once, Especially If Its An Item Everyone Can Use.")
-
-	Tab:AddDropdown({
-		Name = "Item",
-		Default = "Med Kit",
-		Options = ItemsTable,
-		Callback = function(Value)
-			if Value == 'Book' or Value == 'Phone' then
-				Notify('Warning', Value .. " Wont Work Unless You Own The Corresponding Gamepass.", 'rbxassetid://4483345998', 7)
-			end
-			SelectedItem = Value
-		end
-	})
-	Tab:AddButton({
-		Name = "Get Item",
-		Callback = function()
-			GiveItem(SelectedItem)
-		end
-	})
-	local Section = Tab:AddSection({
-		Name = "Training"
-	})
-	Tab:AddButton({
-		Name = "Train Strength",
-		Callback = function()
-			Train("Strength")
-		end
-	})
-	Tab:AddButton({
-		Name = "Train Speed",
-		Callback = function()
-			Train("Speed")
-		end
-	})
-	local Section = Tab:AddSection({
-		Name = "Heal Youself"
-	})
-	Tab:AddButton({
-		Name = "Heal Yourself",
-		Callback = function()
-			for i = 1, 10 do
-				HealYourself()
-			end
-		end
-	})
-	Tab:AddToggle({
-		Name = "Loop Heal Yourself",
-		Default = false,
-		Callback = function(Value)
-			getgenv().HealLoop = Value
-			while HealLoop do
-				HealYourself()
-				task.wait(.1)
-			end
-		end
-	})
-	local Section = Tab:AddSection({
-		Name = "Heal All"
-	})
-	Tab:AddButton({
-		Name = "Heal All",
-		Callback = function()
-			HealAllPlayers()
-		end
-	})
-	Tab:AddToggle({
-		Name = "Loop Heal All",
-		Default = false,
-		Callback = function(Value)
-			getgenv().HealAllLoop = Value
-			while HealAllLoop do
-				HealAllPlayers()
-				task.wait(3)
-			end
-		end
-	})
-	local Section = Tab:AddSection({
-		Name = "Quality Of Life"
-	})
-	Tab:AddToggle({
-		Name = "Semi-Godmode",
-		Default = false,
-		Callback = function(Value)
-			getgenv().SemiGodmode = Value
-			if SemiGodmode == true then
-				Notify('Info', "What Semi-Godmode Works On: Special Attacks (Pizza Boss's Pepper Attack, All Scarry Larry/Marry Attacks Except Monster Spawner), Hailing And Possibly Some Others\nWhat Semi-Godmode Doesnt Work On: Enemies, Ice (Use Anti Slip), Getting Locked In A Room While An Enemy Wave Comes, And Possibly Some Others.", 'rbxassetid://4483345998', 7)
-			end
-		end
-	})
-	Tab:AddToggle({
-		Name = "Remove Slipping",
-		Default = false,
-		Callback = function(Value)
-			getgenv().RemoveSlipping = Value
-			if RemoveSlipping == true then
-				Notify('Credits To', "Leo Dicap On V3rmillion For Making This Feature!", 'rbxassetid://4483345998', 7)
-			end
-		end
-	})
-	Tab:AddToggle({
-		Name = "Remove Hailing",
-		Default = false,
-		Callback = function(Value)
-			if Value == false then
-				if ScriptLoaded == true then
-					HailClone.Parent = game:GetService("Workspace")
-				end
-			else
-				HailClone = game:GetService("Workspace").Hails:Clone()
-				game:GetService("Workspace").Hails:Destroy()
-			end
-		end
-	})
-
-	Tab:AddToggle({
-		Name = "Remove Wind",
-		Default = false,
-		Callback = function(Value)
-			getgenv().NoWind = Value
-			while NoWind == true do
-				AntiWind()
-				task.wait(.5)
-			end
-		end
-	})
-	Tab:AddToggle({
-		Name = "Remove Mud",
-		Default = false,
-		Callback = function(Value)
-			AntiMud(Value)
-		end
-	})
-
-	local Section = Tab:AddSection({
-		Name = "Others"
-	})
-	Tab:AddButton({
-		Name = "Teleport To Private Lobby",
-		Callback = function()
-			game:GetService("TeleportService"):Teleport(14775231477, LocalPlayer)
-		end
-	})
-	Tab:AddButton({
-		Name = "Unlock Secret Ending",
-		Callback = function()
-			GetSecretEnding()
-		end
-	})
-
+	
 	local Tab = Window:MakeTab({
 		Name = "Teleports",
 		Icon = "rbxassetid://4483345998",
