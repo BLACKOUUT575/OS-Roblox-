@@ -1,3 +1,7 @@
+-- Place Check
+if game.PlaceId ~= 2753915549 then
+	if game.PlaceId == 14775231477 or game.PlaceId == 2753915549 then
+        
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/RScriptz/RobloxScripts/main/OrionLibKeybind.lua')))()
 	local Window = OrionLib:MakeWindow({
 		Name = "🍌Blox Fruits🍌",
