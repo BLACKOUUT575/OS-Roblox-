@@ -2,86 +2,8 @@
 if game.PlaceId ~= 13864667823 then
 	if game.PlaceId == 14775231477 or game.PlaceId == 13864661000 then
 	})
-	OrionLib:Init()
-		for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-			if v.Name == "Part" and v:FindFirstChild("TouchInterest") then
-				firetouchinterest(v, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, 0)
-			end
-		end
-	else
-		game:GetService("Players").LocalPlayer:Kick("Error! Game Not Supported!")
-	end
-else
-    	-- Floating Part
-	local Part = Instance.new("Part")
-	Part.Size = Vector3.new(5, 1, 5)
-	Part.Parent = game:GetService("Workspace")
-	Part.Anchored = true
-	Part.Transparency = 1
-
-	-- Locals
-	local Events = game:GetService("ReplicatedStorage"):WaitForChild("Events")
-	local SelectedItem = "Med Kit"
-	local Damange = 5
-	local namecall
-	local ScriptLoaded = false
-	local LocalPlayer = game:GetService("Players").LocalPlayer
-	local Lighting = game:GetService("Lighting")
-	local OriginalWalkspeed = LocalPlayer.Character.Humanoid.WalkSpeed
-	local OriginalJumpPower = LocalPlayer.Character.Humanoid.JumpPower
-	local ModifiedWalkspeed = 50
-	local ModifiedJumpPower = 100
-	local OriginalBrightness = Lighting.Brightness
-	local OriginalFog = Lighting.FogEnd
-	local OriginalShadow = Lighting.GlobalShadows
-	local HailClone = game:GetService("Workspace").Hails:Clone()
-	getgenv().RemoveSlipping = false
-	getgenv().SemiGodmode = false
-
-    -- Remove Slipping Handler
-	local mt = getrawmetatable(game)
-	local old = mt.__namecall
-	setreadonly(mt, false)
-	mt.__namecall = newcclosure(function(self, ...)
-		local args = {
-			...
-		}
-		if getnamecallmethod() == 'FireServer' and self.Name == 'IceSlip' and RemoveSlipping == true then
-			return wait(387420489)
-		end
-		return old(self, unpack(args))
-	end)
-
-    -- Semi-Godmode Handler
-	namecall = hookmetamethod(game, "__namecall", function(self, ...)
-		local args = {
-			...
-		}
-		if getnamecallmethod() == 'FireServer' and self.Name == 'Energy' then
-			if SemiGodmode == true then
-				if args[1] < 0 then
-					args[1] = 0
-				end
-			else
-				args[1] = args[1]
-			end
-			return namecall(self, unpack(args))
-		end
-		return namecall(self, ...)
-	end)
-
-	-- Functions
  
-	local function Noclip(State)
-		LocalPlayer.Character.HumanoidRootPart.CanCollide = State
-		for i, v in pairs(LocalPlayer.Character:GetChildren()) do
-			if v:IsA("MeshPart") then
-				v.CanCollide = State
-			end
-		end
-	end
- 
-	-- Main Script / GUI
+ -- Main Script / GUI
 	local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/RScriptz/RobloxScripts/main/OrionLibKeybind.lua')))()
 	local function Notify(name, content, image, time)
 		OrionLib:MakeNotification({
@@ -622,7 +544,85 @@ else
 			end
 		end    
 	})
+	OrionLib:Init()
+		for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+			if v.Name == "Part" and v:FindFirstChild("TouchInterest") then
+				firetouchinterest(v, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, 0)
+			end
+		end
+	else
+		game:GetService("Players").LocalPlayer:Kick("Error! Game Not Supported!")
+	end
+else
+    	-- Floating Part
+	local Part = Instance.new("Part")
+	Part.Size = Vector3.new(5, 1, 5)
+	Part.Parent = game:GetService("Workspace")
+	Part.Anchored = true
+	Part.Transparency = 1
 
+	-- Locals
+	local Events = game:GetService("ReplicatedStorage"):WaitForChild("Events")
+	local SelectedItem = "Med Kit"
+	local Damange = 5
+	local namecall
+	local ScriptLoaded = false
+	local LocalPlayer = game:GetService("Players").LocalPlayer
+	local Lighting = game:GetService("Lighting")
+	local OriginalWalkspeed = LocalPlayer.Character.Humanoid.WalkSpeed
+	local OriginalJumpPower = LocalPlayer.Character.Humanoid.JumpPower
+	local ModifiedWalkspeed = 50
+	local ModifiedJumpPower = 100
+	local OriginalBrightness = Lighting.Brightness
+	local OriginalFog = Lighting.FogEnd
+	local OriginalShadow = Lighting.GlobalShadows
+	local HailClone = game:GetService("Workspace").Hails:Clone()
+	getgenv().RemoveSlipping = false
+	getgenv().SemiGodmode = false
+
+    -- Remove Slipping Handler
+	local mt = getrawmetatable(game)
+	local old = mt.__namecall
+	setreadonly(mt, false)
+	mt.__namecall = newcclosure(function(self, ...)
+		local args = {
+			...
+		}
+		if getnamecallmethod() == 'FireServer' and self.Name == 'IceSlip' and RemoveSlipping == true then
+			return wait(387420489)
+		end
+		return old(self, unpack(args))
+	end)
+
+    -- Semi-Godmode Handler
+	namecall = hookmetamethod(game, "__namecall", function(self, ...)
+		local args = {
+			...
+		}
+		if getnamecallmethod() == 'FireServer' and self.Name == 'Energy' then
+			if SemiGodmode == true then
+				if args[1] < 0 then
+					args[1] = 0
+				end
+			else
+				args[1] = args[1]
+			end
+			return namecall(self, unpack(args))
+		end
+		return namecall(self, ...)
+	end)
+
+	-- Functions
+ 
+	local function Noclip(State)
+		LocalPlayer.Character.HumanoidRootPart.CanCollide = State
+		for i, v in pairs(LocalPlayer.Character:GetChildren()) do
+			if v:IsA("MeshPart") then
+				v.CanCollide = State
+			end
+		end
+	end
+ }
 	Notify('Loaded!', "Script Successfully Loaded!\nJoin Our Discord At (https://discord.com/invite/XHS5WPxMrr) For Support, Questions And Updates!\nThe Script Is Open Source So Feel Free To Look At The Code!", 'rbxassetid://4483345998', 15)
 	ScriptLoaded = true
 	OrionLib:Init()
