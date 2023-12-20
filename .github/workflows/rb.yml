@@ -1,17 +1,103 @@
--- Place Check
-if game.PlaceId ~= 2753915549 then
-	if game.PlaceId == 14775231477 or game.PlaceId == 2753915549 then
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "🍌Blox Fruits🍌",
+   LoadingTitle = "MiliosBloxFruitStand Hub",
+   LoadingSubtitle = "by Blackouut",
+   ConfigurationSaving = {
+      Enabled = false,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "MiliosBloxFruitStand Hub"
+   },
+   Discord = {
+      Enabled = true,
+      Invite = "HhAtfhugEC", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
         
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/RScriptz/RobloxScripts/main/OrionLibKeybind.lua')))()
-	local Window = OrionLib:MakeWindow({
-		Name = "🍌Blox Fruits🍌",
-		HidePremium = false,
-		SaveConfig = true,
-		ConfigFolder = "Blox Fruits",
-		IntroText = "Unleashing Script..."
-	})
-	local Tab = Window:MakeTab({
-		Name = "Free Gamepasses",
-		Icon = "rbxassetid://4483345998",
-		PremiumOnly = false
-	})
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "MiliosBloxFruitStand | Key System",
+      Subtitle = "Key Link in Discord",
+      Note = "Method of obtaining the key join:Discord.gg/HhAtfhugEC",
+      FileName = "Mili0sBl0xFruitStandHub", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"https://pastebin.com/raw/ygNZGcyf"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local DiscordTab = Window:CreateTab("DISCORD",nil) -- Title, Image
+local Section = DiscordTab:CreateSection("DISCORD")
+local Input = DiscordTab:CreateInput({
+   Name = "Discord",
+   PlaceholderText = "join:Discord.gg/HhAtfhugEC",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+            print("ok")
+            print("Copy To Clip Board")
+   end,
+})
+
+
+local PlayerTab = Window:CreateTab("Player",nil) -- Title, Image
+local Slider = PlayerTab:CreateSlider({
+   Name = "Jump Power",
+   Range = {1, 350},
+   Increment = 1,
+   Suffix = "Jump Power",
+   CurrentValue = 16,
+   Flag = "SliderJumpsj1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = (Value)
+   end,
+})
+
+local Slider = PlayerTab:CreateSlider({
+   Name = "WalkSpeed Slider",
+   Range = {1, 350},
+   Increment = 1,
+   Suffix = "Speed",
+   CurrentValue = 16,
+   Flag = "sliderws1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+            getgenv().WalkSpeedValue = (Value); --set your desired walkspeed here
+local Player = game:service'Players'.LocalPlayer;
+Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
+Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+end)
+Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+           game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Value)
+   end,
+})
+
+local Button = PlayerTab:CreateButton({
+   Name = "Noclip",
+   Callback = function()
+            local Noclip = nil
+local Clip = nil
+ 
+function noclip()
+	Clip = false
+	local function Nocl()
+		if Clip == false and game.Players.LocalPlayer.Character ~= nil then
+			for _,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+				if v:IsA('BasePart') and v.CanCollide and v.Name ~= floatName then
+					v.CanCollide = false
+				end
+			end
+		end
+		wait(0.21)
+	end
+	Noclip = game:GetService('RunService').Stepped:Connect(Nocl)
+end
+ 
+function clip()
+	if Noclip then Noclip:Disconnect() end
+	Clip = true
+end
+ 
+noclip()
+        end
+            
+})
