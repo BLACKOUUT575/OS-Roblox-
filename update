@@ -1,0 +1,290 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "MiliosBloxFruitStand Hub", HidePremium = false,IntroEnabled =true, IntroText ="Now Loading.... ",SaveConfig = false, ConfigFolder = "MiliosBloxFruitStand"})
+OrionLib:MakeNotification({
+	Name = "Successfully Loaded Mod Menu!",
+	Content = "Everything Now is Ready",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+--[[ This is were i keep all my stupid Fucking "Tabs"-"Tabs""Tabs"-"Tabs" "Tabs"-"Tabs""Tabs"-"Tabs" "Tabs"-"Tabs""Tabs"-"Tabs" "Tabs"-"Tabs""Tabs"-"Tabs" Fuck You!]]
+
+local DiscordTab = Window:MakeTab({
+	Name = "Discord",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+
+})
+local GeneralTab = Window:MakeTab({
+	Name = "General",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+
+})
+local AutoFarmTab = Window:MakeTab({
+	Name = "Auto Farm",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+
+})
+
+
+local PlayerTab = Window:MakeTab({
+	Name = "Player",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+
+})
+
+
+local FruitTab = Window:MakeTab({
+	Name = "Fruit",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+
+})
+
+local TeleportTab = Window:MakeTab({
+	Name = "Teleport",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+
+})
+
+
+
+local AutoRaidsTab = Window:MakeTab({
+	Name = "Auto Raids",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+
+})
+
+
+local ShopTab = Window:MakeTab({
+	Name = "Shop",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+
+})
+
+
+local MiscTab = Window:MakeTab({
+	Name = "Misc",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+
+})
+local SettingsTab = Window:MakeTab({
+	Name = "Settings",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+
+})
+--[[ This is were i keep all my stupid Fucking Add "Section" -"Section""Section" -"Section""Section" -"Section" "Section" -"Section" "Section" -"Section""Section" -"Section""Section" -"Section" "Section" -"Section"Fuck You!]]
+
+
+local Section = DiscordTab:AddSection({
+	Name = "Discord"
+})
+local Section = GeneralTab:AddSection({
+	Name = "General"
+})
+local Section = AutoFarmTab:AddSection({
+	Name = "Auto Farm"
+})
+local Section = PlayerTab:AddSection({
+	Name = "Player"
+})
+local Section = FruitTab:AddSection({
+	Name = "Fruit"
+})
+local Section = TeleportTab:AddSection({
+	Name = "Teleport"
+})
+
+local Section = AutoRaidsTab:AddSection({
+	Name = "Auto Raids"
+})
+local Section = ShopTab:AddSection({
+	Name = "Shop"
+})
+local Section = MiscTab:AddSection({
+	Name = "Misc"
+})
+local Section = SettingsTab:AddSection({
+	Name = "Settings"
+})
+local Section = Tab:AddSection({
+	Name = "Section"
+})
+local Section = Tab:AddSection({
+	Name = "Section"
+})
+
+--[[ This is were i keep all my stupid Fucking -Buttons -Buttons -Buttons-Buttons--Buttons-Buttons--Buttons -Buttons-Buttons-Fucck You!]]
+
+Tab:AddButton({
+	Name = "Button!",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
+
+Tab:AddButton({
+	Name = "Button!",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Button!",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Button!",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Button!",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Button!",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Button!",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Button!",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Button!",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+Tab:AddButton({
+	Name = "Button!",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
+----[[ This is were i keep all my stupid Fucking-Checkbox toggle-Checkbox toggle-Checkbox toggle-Checkbox toggle-Checkbox toggle- Fucck You!]]
+
+Tab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+		print(Value)
+	end    
+})
+
+Tab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+		print(Value)
+	end    
+})
+
+Tab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+		print(Value)
+	end    
+})
+
+Tab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+		print(Value)
+	end    
+})
+
+Tab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+		print(Value)
+	end    
+})
+
+Tab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+		print(Value)
+	end    
+})
+
+Tab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+		print(Value)
+	end    
+})
+
+Tab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+		print(Value)
+	end    
+})
+
+Tab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+		print(Value)
+	end    
+})
+
+----[[ This is were i keep all my stupid Fucking-Slider-Slider-Slider-SliderSlider-Slider-Slider-Slider-Slider-Slider-Slider-SliderFucck You!]]
+
+PlayerTab:AddSlider({
+	Name = "Slider",
+	Min = 0,
+	Max = 20,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "bananas",
+	Callback = function(Value)
+		print(Value)
+	end    
+})
+
+
+
+
+OrionLib:Init()
