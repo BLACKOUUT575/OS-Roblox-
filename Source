@@ -3084,7 +3084,7 @@ function Library:prompt(options)
 	options = self:set_defaults({
 		Followup = false,
 		Title = "Prompt",
-		Text = "yo momma dead",
+		Text = "keybind Active",
 		Buttons = {
 			ok = function()
 				return true
