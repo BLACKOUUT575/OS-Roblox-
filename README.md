@@ -1,183 +1,173 @@
-#  Library
-This documentation is for the Library.
+[![discord server](https://media.discordapp.net/attachments/929706675022233640/933723518321967144/banner.jpg)](https://discord.gg/jaunk8nhN5)
 
-## Booting the Library
+# Mercury
+
+Mercury is a free and open sourced Roblox UI library.
+
+- https://discord.gg/jaunk8nhN5
+- https://discord.com/users/480805591221010456
+- https://discord.com/users/452466034822217739
+
+## Loadstring
 ```lua
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/BLACKOUUT575/OS-Roblox-/main/Source"))()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
 ```
 
+## Features:
+- Customizable (Themes)
+- Browser-Like navigation
+- Buttons
+- Sliders
+- Dropdowns
+- Inputs
+- Color Picker
+- Notifications
+- Prompts
 
+... more to be added.
 
-## Creating a Window
+Created by [Deity#0228] and [Abstract#8007]
+
+## Documentation
+
+### Get the Library
 ```lua
-local gui = Library:create{
-    Theme = Library.Themes.Serika
-
+local Mercury = loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
 ```
 
-
-
-## Creating a Tab
+### Create the GUI
 ```lua
-local tab = gui:tab{
-    Icon = "rbxassetid",
-    Name = "TAB NAME"
+local GUI = Mercury:Create{
+    Name = "Mercury",
+    Size = UDim2.fromOffset(600, 400),
+    Theme = Mercury.Themes.Dark,
+    Link = "https://github.com/deeeity/mercury-lib"
+}
+```
+
+### Tabs
+```lua
+local Tab = GUI:Tab{
+	Name = "New Tab",
+	Icon = "rbxassetid://8569322835"
+}
+```
+
+### Buttons
+```lua
+Tab:Button{
+	Name = "Button",
+	Description = nil,
+	Callback = function() end
+}
+```
+
+### Toggles
+```lua
+Tab:Toggle{
+	Name = "Toggle",
+	StartingState = false,
+	Description = nil,
+	Callback = function(state) end
+}
+```
+
+### Textboxes
+```lua
+Tab:Textbox{
+	Name = "Textbox",
+	Callback = function(text) end
+}
+```
+
+### Dropdowns
+```lua
+local MyDropdown = Tab:Dropdown{
+	Name = "Dropdown",
+	StartingText = "Select...",
+	Description = nil,
+	Items = {
+		{"Hello", 1}, 		-- {name, value}
+		12,			-- or just value, which is also automatically taken as name
+		{"Test", "bump the thread pls"}
+	},
+	Callback = function(item) return end
+}
+
+MyDropdown:AddItems({
+	{"NewItem", 12},		-- {name, value}
+	400				-- or just value, which is also automatically taken as name
 })
 
---[[
-Name = <string> - The name of the tab.
-Icon = <string> - The icon of the tab.
-]]
-```
-
-## Notifying the user
-EXAMPLE:
-```lua
-tab:prompt{
-            Title = "ESP",
-            Text = "ESP Now Active",
-            Buttons = {
-                Ok = function()
-                    tab:prompt{
-                        Followup = true,
-                        Title = "Loading....",
-                        Text = "Bypass Anti Cheat",
-                        Buttons = {
-                            Yes = function()
-                                tab:prompt{
-                                    Followup = true,
-                                    Title = "Byfron Bypass",
-                                    Text = "Bypassed Anti Cheat",
-                                    Buttons = {
-                                        Execute = function()
-                                            gui:set_status("ESP ACTIVE")
-                                        end,
-                                        Exit = function()
-                                            gui:set_Status("ESP Not Active")
+MyDropdown:RemoveItems({
+	"NewItem", "Hello"		-- just the names to get removed (upper/lower case ignored)
 })
 
---[[
-Title = <string> - The title of the notification.
-TEXT = <string> - The content of the notification.
-Function = <string> - The icon of the notification.
-]]
+MyDropdown:Clear()
 ```
 
-
-
-## Creating a Button
+### Sliders
 ```lua
-tab:button({
-    Name = "NAME of BUTTON",
-    Callback = function()
-      		print("button pressed") --[[print the function in Game]]
-  	end    
-})
-
---[[
-Name = <string> - The name of the button.
-Callback = <function> - The function of the button.
-]]
+Tab:Slider{
+	Name = "Slider",
+	Default = 50,
+	Min = 0,
+	Max = 100,
+	Callback = function() end
+}
 ```
 
-
-
-
-## Creating a Color Picker
+### Keybinds
 ```lua
-Tab:AddColorpicker({
-	Name = "Colorpicker",
-	Default = Color3.fromRGB(255, 0, 0),
-	Callback = function(Value)
-		print(Value)
-	end	  
-})
-
---[[
-tab:color_picker({
-    Name = "your mom's color",
-    Style = Library.ColorPickerStyles.Legacy,
-    Description = "Click to adjust color...",
-    Callback = function(color)
-        print(color)
-    end,
-]]
+Tab:Keybind{
+	Name = "Keybind",
+	Keybind = nil,
+	Description = nil
+}
 ```
 
-### Setting the color picker's value
+### Prompt
 ```lua
-ColorPicker:Set(Color3.fromRGB(255,255,255))
+GUI:Prompt{
+	Followup = false,
+	Title = "Prompt",
+	Text = "Prompts are cool",
+	Buttons = {
+		ok = function()
+			return true
+		end,
+		no = function()
+			return false
+		end
+	}
+}
 ```
 
-
-## Creating a Slider
+### Notification
 ```lua
-local cum = tab:slider({Callback = function(v)
-
-    gui:set_status(v)
-end})
-})
-
-
-
-## Creating an Adaptive Input
-```lua
-
-tab:textbox({Callback = function(v)
-    gui:prompt{Text = v}
-end,})
-})
-
---[[
-Name = <string> - The name of the textbox.
-Default = <string> - The default value of the textbox.
-TextDisappear = <bool> - Makes the text disappear in the textbox after losing focus.
-Callback = <function> - The function of the textbox.
-]]
+GUI:Notification{
+	Title = "Alert",
+	Text = "You shall bump the thread on V3rmillion!",
+	Duration = 3,
+	Callback = function() end
+}
 ```
 
-
-## Creating a Keybind
+### Color Picker
 ```lua
-Tab:AddBind({
-	Name = "Bind",
-	Default = Enum.KeyCode.E,
-	Hold = false,
-	Callback = function()
-		print("press")
-	end    
-})
-
---[[
-Name = <string> - The name of the bind.
-Default = <keycode> - The default value of the bind.
-Hold = <bool> - Makes the bind work like: Holding the key > The bind returns true, Not holding the key > Bind returns false.
-Callback = <function> - The function of the bind.
-]]
+Tab:ColorPicker{
+	Style = Mercury.ColorPickerStyles.Legacy,
+	Callback = function(color) end
+}
 ```
 
-### Chaning the value of a bind
+### Credit
 ```lua
-Bind:Set(Enum.KeyCode.E)
+GUI:Credit{
+	Name = "Creditor's name",
+	Description = "Helped with the script",
+	V3rm = "link/name",
+	Discord = "helo#1234"
+}
 ```
-
-
-## Creating a Dropdown menu
-```lua
-tab:dropdown({
-    Name = "yes",
-    StartingText = "Number",
-    Items = {
-        {"One", 1},
-        {"Two", 2},
-        {"Three", 3}
-    },
-
---[[
-Name = <string> - The name of the dropdown.
-Default = <string> - The default value of the dropdown.
-Items = <table> - The options in the dropdown.
-Callback = <function> - The function of the dropdown.
-]]
-```
+**PLEASE NOTE THAT THE LOWER- AND UPPERCASE LETTERS DON'T MATTER WHEN CALLING LIBRARY FUNCTIONS.**
