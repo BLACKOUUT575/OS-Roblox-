@@ -3244,10 +3244,10 @@ end
 
 function Library:slider(options)
 	options = self:set_defaults({
-		Name = "Slider",
-		Default = 50,
+		Name = "Walk Speed",
+		Default = 1,
 		Min = 0,
-		Max = 100,
+		Max = 250,
 		Callback = function() end
 	}, options)
 
