@@ -1,12 +1,7 @@
 [![discord server](https://media.discordapp.net/attachments/929706675022233640/933723518321967144/banner.jpg)](https://discord.gg/jaunk8nhN5)
 
-# Mercury
 
 Mercury is a free and open sourced Roblox UI library.
-
-- https://discord.gg/jaunk8nhN5
-- https://discord.com/users/480805591221010456
-- https://discord.com/users/452466034822217739
 
 ## Loadstring
 ```lua
@@ -161,13 +156,4 @@ Tab:ColorPicker{
 }
 ```
 
-### Credit
-```lua
-GUI:Credit{
-	Name = "Creditor's name",
-	Description = "Helped with the script",
-	V3rm = "link/name",
-	Discord = "helo#1234"
-}
-```
 **PLEASE NOTE THAT THE LOWER- AND UPPERCASE LETTERS DON'T MATTER WHEN CALLING LIBRARY FUNCTIONS.**
