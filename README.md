@@ -5,7 +5,7 @@ Mercury is a free and open sourced Roblox UI library.
 
 ## Loadstring
 ```lua
-loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BLACKOUUT575/OS-Roblox-/main/Source"))()
 ```
 
 ## Features:
