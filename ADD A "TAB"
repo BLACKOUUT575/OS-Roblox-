@@ -1,0 +1,3 @@
+local tab = gui:tab{
+    Icon = "rbxassetid://6034996695",
+    Name = "tab-name"
