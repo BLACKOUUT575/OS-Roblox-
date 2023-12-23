@@ -3242,6 +3242,15 @@ function Library:colorpicker(options)
 	return Library.color_picker(self, options)
 end
 
+function Library:Jumpslider(options)
+	options = self:set_defaults({
+		Name = "Walk Speed",
+		Default = 1,
+		Min = 0,
+		Max = 250,
+		Callback = function() end
+	}, options)
+
 function Library:slider(options)
 	options = self:set_defaults({
 		Name = "Walk Speed",
