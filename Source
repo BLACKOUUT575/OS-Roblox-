@@ -1,3 +1,4 @@
+
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
@@ -409,10 +410,10 @@ function Library:create(options)
 	end
 
 	options = self:set_defaults({
-		Name = "MiliosBloxFruitStand",
+		Name = "Mercury",
 		Size = UDim2.fromOffset(600, 400),
 		Theme = self.Themes[settings.Theme],
-		Link = "https://discord.gg/HhAtfhugEC"
+		Link = "https://github.com/deeeity/mercury-lib"
 	}, options)
 
 	if getgenv and getgenv().MercuryUI then
@@ -814,8 +815,8 @@ function Library:create(options)
 		Size = UDim2.fromOffset(24, 24),
 		Position = UDim2.new(1, -44, 1, -10),
 		AnchorPoint = Vector2.new(1, 1),
-		Image = "http://www.roblox.com/asset/?id=8395747586"
-	}):tooltip("Discord")
+		Image = "http://www.roblox.com/asset/?id=8577523456"
+	}):tooltip("credits")
 
 	local quickAccess = homePage:object("Frame", {
 		BackgroundTransparency = 1,
@@ -888,7 +889,7 @@ function Library:create(options)
 		end,
 	}
 
-	local creditsTab = Library.tab(mt, {
+	local DiscordTab = Library.tab(mt, {
 		Name = "Discord",
 		Internal = creditsTabIcon,
 		Icon = "http://www.roblox.com/asset/?id=8577523456"
@@ -896,9 +897,8 @@ function Library:create(options)
 
 	rawset(mt, "creditsContainer", creditsTab.container)
 
-	creditsTab:credit{Name = "MiliosBloxFruitStand", Description = "Join our", Discord = "https://discord.gg/HhAtfhugEC", V3rmillion = "BLACKOUUT"}
-
-
+	DiscordTab:credit{Name = "Join", Description = "MiliosBloxFruitStand", Discord = "https://discord.gg/HhAtfhugEC", V3rmillion = "BLACKOUUT"}
+	
 	return mt
 end
 
@@ -3084,7 +3084,7 @@ function Library:prompt(options)
 	options = self:set_defaults({
 		Followup = false,
 		Title = "Prompt",
-		Text = "keybind Active",
+		Text = "yo momma dead",
 		Buttons = {
 			ok = function()
 				return true
@@ -3244,10 +3244,10 @@ end
 
 function Library:slider(options)
 	options = self:set_defaults({
-		Name = "Walk Speed",
-		Default = 1,
+		Name = "Slider",
+		Default = 50,
 		Min = 0,
-		Max = 250,
+		Max = 100,
 		Callback = function() end
 	}, options)
 
